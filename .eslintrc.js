@@ -15,5 +15,11 @@ module.exports = {
     rules: {
         semi: ['error', 'always'],
         '@next/next/no-img-element': 'off',
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
 };
