@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = (endpoint) => {
+const useFetch = (endPoint) => {
     const [data, setData] = useState([]);
 
-    async function fetchData() {
-        const response = await axios.get(endpoint);
-        setData(response.data);
-    }
-
     useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get(endPoint);
+            const data = response.data;
+            setData(data);
+        }
+
         try {
             fetchData();
         } catch (error) {
-            console.log(error);
+            console.log('error en la conexión');
         }
-    }, []);
+    }, [endPoint]);
 
     return data;
 };
